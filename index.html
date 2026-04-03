@@ -85,7 +85,7 @@
     }
 
     h1, h2, h3, strong {
-      font-weight: 700; /* 제목은 자동으로 Bold(B) 적용 */
+      font-weight: 900; /* 제목은 자동으로 Bold(B) 적용 */
     }
 
     p {
@@ -95,8 +95,13 @@
     .small-gray {
       font-size: 12px;
       color: #888888;
-      margin-top: 5px;
+      margin-top: 0.1px;
     }
+
+    .sns{
+      font-size: 15px;
+      color: #888888;
+      margin-top: 10px;
 
     /* 1. 메인 */
     .hero {
@@ -126,14 +131,12 @@
       margin-top: 20px;
     }
     #bottom-logo {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: auto;
-      opacity: 0.8;
-      z-index: 1000;
-    }
+display: block;      /* 한 줄을 차지하게 함 */
+  margin: 20px auto;   /* 위아래 20px 여백, 좌우 중앙 정렬 */
+  width: 60px;         /* 크기는 유지 */
+  height: auto;
+  opacity: 0.8;
+}
 
     /* 3. 혜택 */
     .benefit {
@@ -227,8 +230,8 @@
 
 <section class="about">
   <div class="logo"><img src="https://raw.githubusercontent.com/ekdud0423/D-dim-project/main/%EA%B7%B9%EB%8B%A8%EB%A1%9C%EA%B3%A0.png" alt="극단 백일몽 로고" width="100" height="100"></div>
-  <h3>2024년에 창단된 극단 백일몽은,</h3>
-  <p>낮에 꿈을 꾸는 사람들의 집단입니다.</p>
+  <p>2024년에 창단된 <strong>극단 백일몽은</strong></p>
+  <p><stromg>낮에 꿈을 꾸는 사람들의 집단</stromg>입니다.</p>
   <p>꿈과 현실이 공존하는 그 경계에서 인간이 끝까지 붙잡아야 할 가치를 무대에 올립니다.</p>
 </section>
 
@@ -240,14 +243,16 @@
 </section>
 
 <section class="sns">
-  <p>Instagram @day_101_dream</p>
-  <p>YouTube @backilmong_0202</p>
+  <p class="small-gray>Instagram @day_101_dream</p>
+  <p class="small-gray>YouTube @backilmong_0202</p>
 </section>
 
 <section class="supporters">
   <h2>후원자 명단</h2>
   <p>여러분의 응원으로 이 무대가 완성됩니다.</p>
+  <br>
   <p>감사합니다</p>
+  <br>
   <p class="small-gray">극단 백일몽 일동</p>
 </section>
 
