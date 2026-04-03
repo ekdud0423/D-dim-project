@@ -5,7 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>디딤프로젝트 | 극단 백일몽</title>
 
-  <!-- SB Aggro 대체용 기본 폰트 (나중에 SB Aggro 웹폰트로 교체) -->
+/* 가벼운 굵기 (Light) */
+@font-face {
+    font-family: 'SBAggro';
+    src: url('./SB 어그로 L.ttf') format('truetype');
+    font-weight: 300; /* Light는 보통 300을 씁니다 */
+    font-style: normal;
+}
+
+/* 중간 굵기 (Medium) */
+@font-face {
+    font-family: 'SBAggro';
+    src: url('./SB 어그로 M.ttf') format('truetype');
+    font-weight: 500; /* Medium은 보통 500을 씁니다 */
+    font-style: normal;
+}
+
+/* 굵은 굵기 (Bold) */
+@font-face {
+    font-family: 'SBAggro';
+    src: url('./SB 어그로 B.ttf') format('truetype');
+    font-weight: 700; /* Bold는 보통 700을 씁니다 */
+    font-style: normal;
+}
+
+/* 2. 웹페이지 전체에 적용하기 */
+body {
+    font-family: 'SBAggro', sans-serif;
+    line-height: 1.6; /* 글자 간격이 너무 붙지 않게 조절해줍니다 */
+}
+
+/* 3. 특정 부분에 굵기 조절하고 싶을 때 예시 */
+h1 {
+    font-weight: 700; /* 제목은 자동으로 Bold(B) 파일이 사용됩니다 */
+}
+
+p {
+    font-weight: 300; /* 본문은 Light(L) 파일로 보이고 싶을 때 */
+}
   <style>
     :root {
       --deep-navy: #28246B;  /* 메인 진한 남색 */
