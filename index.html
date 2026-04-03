@@ -143,14 +143,21 @@ display: block;      /* 한 줄을 차지하게 함 */
       background: #4b3c8a;
       color: white;
     }
-    #my-table {
-      width: 270px;
-      max-width: 70%; /* 모바일에서 삐져나가지 않게 추가 */
-      aspect-ratio: 2.07 / 1;
-      object-fit: contain;
-      display: block;
-      margin: 40px auto;
-    }
+   #my-table {
+    /* 1. 크기 결정 (가장 중요!) */
+    width: 200px;           /* 270px이 크다면 200px이나 180px로 줄여보세요 */
+    
+    /* 2. 모바일 대응 */
+    max-width: 60%;         /* 화면 너비의 60%를 넘지 않게 제한 (더 작게 만들려면 %를 줄이세요) */
+    
+    /* 3. 비율 및 정렬 */
+    aspect-ratio: 2.07 / 1; /* 이미지 비율 유지 */
+    display: block;
+    margin: 30px auto;      /* 위아래 간격 30px, 좌우 중앙 정렬 */
+    
+    /* 4. 깔끔하게 보이기 */
+    object-fit: contain;
+}
     #table-info {
       font-size: 12px;
       color: #bbbbbb; /* 배경이 어두우므로 약간 더 밝은 회색으로 변경 */
