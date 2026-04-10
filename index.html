@@ -1,303 +1,149 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>디딤프로젝트 | 극단 백일몽</title>
+<style>
+  /* --- 1. 폰트 등록 (SB 어그로) --- */
+  @font-face {
+      font-family: 'SBAggro';
+      src: url('./SB 어그로 L.ttf') format('truetype');
+      font-weight: 300;
+  }
+  @font-face {
+      font-family: 'SBAggro';
+      src: url('./SB 어그로 M.ttf') format('truetype');
+      font-weight: 500;
+  }
+  @font-face {
+      font-family: 'SBAggro';
+      src: url('./SB 어그로 B.ttf') format('truetype');
+      font-weight: 700;
+  }
 
-  <!-- SB Aggro 대체용 기본 폰트 (나중에 SB Aggro 웹폰트로 교체) -->
-  <style>
+  :root {
+    --deep-navy: #28246B;
+    --hero-purple: #4b3c8a;
+    --bg-gray: #f4f4f4;
+    --gallery-blue: #7fa0c4;
+  }
 
-  <style>
-    /* --- 1. 폰트 등록 (SB 어그로) --- */
-    @font-face {
-        font-family: 'SBAggro';
-        src: url('./SB 어그로 L.ttf') format('truetype');
-        font-weight: 300;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: 'SBAggro';
-        src: url('./SB 어그로 M.ttf') format('truetype');
-        font-weight: 500;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: 'SBAggro';
-        src: url('./SB 어그로 B.ttf') format('truetype');
-        font-weight: 700;
-        font-style: normal;
-    }
-    :root {
-      --deep-navy: #28246B;  /* 메인 진한 남색 */
-      --mid-blue:  #3C459D;  /* 중간 블루 */
-      --light-blue:#669BD2;  /* 하늘색 배경용 */
-      --text-dark: #222222;
-      --text-light:#f8f8ff;
-      --bg-body:   #f5f6fb;
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
-      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.18);
-    }
-@media (max-width: 768px) {
-  /* 모바일 전용 스타일 */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
+    margin: 0;
+    font-family: 'Pretendard', 'SBAggro', sans-serif;
+    line-height: 1.6; /* 줄간격을 주어 가독성 향상 */
+    word-break: keep-all; /* 한글 단어 끊김 방지 */
+  }
+
+  /* --- 공통 섹션 설정 (PC에서 옆으로 퍼지는 것 방지) --- */
+  section {
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 내부 요소 중앙 정렬 */
+  }
+
+  /* 섹션 내 실제 콘텐츠가 들어가는 박스 */
+  .inner-content {
+    width: 100%;
+    max-width: 800px; /* PC에서 글이 옆으로 너무 퍼지지 않게 제한 */
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-family: 'SBAggro', sans-serif;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  /* 1. 메인 (Hero) */
+  .hero {
+    background: var(--hero-purple);
+    color: white;
+    padding: 100px 20px;
+  }
+  .hero img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* 2. 소개 (Intro) */
+  .intro {
+    background: var(--bg-gray);
+    position: relative;
+  }
+  .intro h2 { color: var(--deep-navy); }
+  .big-text {
+    font-size: 1.5rem;
+    margin-top: 30px;
+  }
+
+  /* 3. 혜택 (Benefit) */
+  .benefit {
+    background: var(--hero-purple);
+    color: white;
+  }
+  #my-table {
+    width: 100%;
+    max-width: 500px; /* 표 이미지가 너무 커지지 않게 */
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+  }
+  #table-info {
     font-size: 14px;
-    padding: 10px;
+    color: #ddd;
+    margin-top: 15px;
   }
-  #bottom-logo {
-    width: 50%;
-    bottom: 10px;
-    right: 10px;
-  }
-}
 
-@media (min-width: 769px) {
-  /* PC 전용 스타일 */
-  body {
-    font-size: 16px;
-    padding: 40px;
+  /* 4. 극단 소개 */
+  .about {
+    background: #3b2e6e;
+    color: white;
   }
+
+  /* 5. 갤러리 */
+  .gallery { background: var(--gallery-blue); }
+  .gallery .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* PC에선 옆으로, 모바일에선 세로로 */
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;
+  }
+  .gallery .box {
+    background: rgba(255,255,255,0.2);
+    padding: 50px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+  }
+
+  /* 6. SNS & 7. 후원자 */
+  .sns { background: #6b8bb1; color: white; }
+  .supporters { background: #eee; }
+  .small-gray { color: #888; font-size: 12px; }
+
+  /* --- 하단 로고 이미지 --- */
   #bottom-logo {
-    width: 60px;
+    position: absolute;
     bottom: 20px;
     right: 20px;
-  }
-}
-
-    
-* {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-}
-
-body {
-  margin: 0;
-  font-family: 'Pretendard', sans-serif;
-}
-
-/* 공통 */
-section {
-  padding: 40px 20px;
-  text-align: center;
-}
-.small-gray {
-  font-size: 12px;
-  color: #888888;
-  margin-top: 5px;   /* 줄 간격 조정 */
-}
-
-
-/* 1. 메인 */
-.hero {
-  background: #4b3c8a;
-  color: white;
-  padding: 80px 20px;
-}
-
-.hero .logo {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.hero h2 {
-  margin: 14px 0;
-}
-
-/* 2. 소개 */
-.intro {
-  background: #f4f4f4;
-}
-
-.intro {
-  position: relative;   /* 로고 위치 기준 */
-  padding: 20px;
-  background: #f4f4f4; /* 기존 배경 색상 유지 */
-}
-
-.intro h2 {
-  color: #2c2c7a;
-}
-
-.intro .highlight {
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-#bottom-logo {
-  position: absolute;   /* 섹션 기준 절대 위치 */
-  bottom: 20px;         /* 섹션 맨 아래에서 20px 위 */
-  right: 20px;           /* 섹션 왼쪽에서 20px 떨어짐 */
-  width: 60px;          /* 크기 조절 */
-  height: auto;         /* 비율 유지 */
-  opacity: 0.8;         /* 살짝 투명하게 */
-  z-index: 1000;        /* 다른 요소 위에 표시 */
-}
-
-.big-text {
-  font-size: 24px;
-}
-
-/* 3. 혜택 */
-.benefit {
-  background: #4b3c8a;
-  color: white;
-}
-
-.benefit table {
-  width: 70%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.benefit th, .benefit td {
-  border: 1px solid white;
-  padding: 10px;
-}
-
-#my-table {
-  width: 200px;            /* 원하는 고정 가로 크기 */
-  aspect-ratio: 2.07 / 1;  /* 비율 유지 */
-  object-fit: contain;     /* 이미지 비율 그대로 */
-  display: block;          /* 블록 요소로 만들어 margin 적용 가능 */
-  margin: 10px auto;       /* 위아래 40px, 좌우 자동 여백 */
+    width: 60px;
+    opacity: 0.6;
   }
 
-#table-info {
-  font-size: 12px;       /* 글씨 작게 */
-  color: #888888;        /* 연한 회색 */
-  text-align: center;      /* 왼쪽 정렬 */
-  margin-top: 1px;      /* 이미지와 텍스트 사이 간격 */
-  line-height: 2;      /* 줄 간격 */
-}
-
-/* 4. 극단 */
-.about {
-  background: #4b3c8a;
-  color: white;
-}
-
-.about .logo {
-  margin-bottom: 20px;
-}
-
-/* 5. 갤러리 */
-.gallery {
-  background: #7fa0c4;
-}
-
-.gallery .box {
-  background: rgba(255,255,255,0.3);
-  margin: 20px 0;
-  padding: 40px;
-}
-
-/* 6. SNS */
-.sns {
-  background: #7fa0c4;
-}
-
-/* 7. 후원자 */
-.supporters {
-  background: #eee;
-}
-
+  /* 모바일 최적화 */
+  @media (max-width: 768px) {
+    section { padding: 40px 15px; }
+    .big-text { font-size: 1.2rem; }
+    .hero { padding: 60px 15px; }
+  }
 </style>
-</head>
-
-<body>
-
-<!-- 1. 메인 -->
-<section class="hero">
-  <div class="logo"><img src="https://raw.githubusercontent.com/ekdud0423/D-dim-project/main/%EA%B8%80%EC%94%A8%EB%94%94%EB%94%A4.png" alt="디딤로고글씨" width="300" height="200"></div>
-  <h2>D-dim Project</h2>
-  <p>디딤프로젝트를 함께 만들어주세요</p>
-</section>
-
-<!-- 2. 소개 -->
-<section class="intro">
-  <h2>디딤 프로젝트 소개</h2>
-  <br></br>
-   <p>
-D-dim project는 신인 연출가와 배우가 다음 창작 단계로 나아가기 위한 <b>‘디딤돌’ 역할을 하는 공연예술 프로젝트</b>입니다.
-  </p>
-<br></br>
-  <p>
- 이 프로젝트는 아직 자신의 창작 언어와 작업 기준이 완전히 
-자리 잡지 않은 신인 예술가들이 <b>서로의 작업을 통해 배우고 성장하며 창작의 기초를 다질 수 있도록 기획</b>되었습니다.
-<br></br>
-  </p>
-<p>
-참여 예술가들은 서로의 작업 과정을 관찰하고 의견을 나누며
-상호 자극과 실질적인 도움을 주고받습니다. 이를 통해 
-<b>단기적인 공연 경험에 머무르지 않고, 이후의 창작으로 이어질 수 있는 
-지속적인 협업 관계와 자생적인 창작 공동체의 기반</b>을 만들어가고자 합니다.  </p>
-<br></br>
-<p>
-디딤프로젝트는 지금까지 이어져 온 과정 위에서, 새로운 팀과 함께 또 한 번의 시작을 준비하고 있습니다. 이 프로젝트가 계속해서 다음 단계로 나아갈 수 있도록, 
-그리고 <b>더 많은 신인 예술가들이 이 ‘디딤’ 위에 설 수 있도록
-여러분의 도움이 필요합니다.</b>
-</p>
-<br></br>
-  <p class="big-text">
-  <strong>디딤프로젝트,</p>
-<p class="big-text">그 한 걸음을 함께 만들어주세요.</strong></p>
-
-</section>
-
-<!-- 3. 후원 혜택 -->
-<section class="benefit">
-  <h2>디딤프로젝트 후원 혜택 안내</h2>
-<div class="table"><img src="https://raw.githubusercontent.com/ekdud0423/D-dim-project/main/%ED%9B%84%EC%9B%90%ED%91%9C_%EB%A6%AC%EC%96%BC.png" alt="후원표" id="my-table" style="width:300px;"></div>
-
-<p id="table-info">
-  계좌: 토스뱅크 1002-4334-5444 이다영 (극단 백일몽 후원계좌입니다.)<br>
-  문의: 극단 백일몽 기획 이다영 010-6743-0108
-</p>
-
-</section>
-
-<!-- 4. 극단 소개 -->
-<section class="about">
-  <div class="logo"><img src="https://raw.githubusercontent.com/ekdud0423/D-dim-project/main/%EA%B7%B9%EB%8B%A8%EB%A1%9C%EA%B3%A0.png" alt="극단 백일몽 로고"width="100" height="100"></div>
-
-  <p>2024년에 창단된 <strong>극단 백일몽은</strong>
-  <strong>낮에 꿈을 꾸는 사람들의 집단</strong>입니다.
-  </p>
-
-  <p>
-  꿈과 현실이 공존하는 그 경계에서<br>
-  인간이 끝까지 붙잡아야 할 가치를 무대에 올립니다.</br>
-  </p>
-
-</section>
-
-<!-- 5. 사진 영역 -->
-<section class="gallery">
-  <h2>공연 사진 / 연습사진</h2>
-  <div class="box">극단 미모</div>
-  <div class="box">극단 백일몽</div>
-  <div class="box">극단 새김</div>
-</section>
-
-<!-- 6. SNS -->
-<section class="sns">
-  <p>Instagram @day_101_dream</p>
-  <p>YouTube @backilmong_0202</p>
-</section>
-
-<!-- 7. 후원자 -->
-<section class="supporters">
-  <h2>후원자 명단</h2>
-<br></br>
-  <p>여러분의 응원으로 이 무대가 완성됩니다.</p>
-<br>
-<p>감사합니다</p>
-<br>
-<p class="small-gray">극단 백일몽 일동</p>
-</section>
-
-</body>
-</html>
